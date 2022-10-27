@@ -1,16 +1,10 @@
-import { useState } from 'react';
 import {AiOutlineHeart} from 'react-icons/ai';
 import {AiTwotoneHeart} from 'react-icons/ai';
-
 import {SlOptions} from 'react-icons/sl';
+import useActivate from '../../hooks/useActivate';
 
 const SliderInfo = () => {
-
-    const [isActive, setIsActive] = useState<boolean>(false);
-
-    const handleToggleHeart = () => {
-        setIsActive(!isActive);
-    } 
+    const {isActivate, handleActivate} = useActivate();
 
     return (
         <div className="absolute right-10 bottom-5 flex flex-col items-end">
@@ -21,9 +15,9 @@ const SliderInfo = () => {
                 <button>
                     <SlOptions size={25}/>
                 </button>
-                <button onClick={handleToggleHeart}>
+                <button onClick={handleActivate}>
                     {
-                        isActive ? 
+                         isActivate? 
                             <AiTwotoneHeart size={25} />:
                             <AiOutlineHeart size={25} />
                     }

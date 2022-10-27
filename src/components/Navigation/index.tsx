@@ -7,17 +7,17 @@ import {AiOutlineAppstore} from 'react-icons/ai';
 
 const Navigation = () => {
     return (
-        <nav className="flex flex-col w-full">
+        <nav className="flex flex-col w-full mb-5">
             <NavLink to="/" icon={<AiFillHome />}>
                 Home
             </NavLink>
-            <NavLink to="/new2" icon={<AiOutlineAppstore />}>
+            <NavLink to="/browse" icon={<AiOutlineAppstore />}>
                 Browse 
             </NavLink>
             <NavLink to="/favorites" icon={<AiOutlineHeart />}>
                 Favorites
             </NavLink>
-            <NavLink to="/new" icon={<BsHeadphones />}>
+            <NavLink to="/library" icon={<BsHeadphones />}>
                 Library 
             </NavLink>
         </nav>

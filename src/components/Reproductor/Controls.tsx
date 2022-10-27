@@ -2,13 +2,16 @@ import {useState} from 'react'
 import {BiSkipNext, BiSkipPrevious } from 'react-icons/bi';
 import {FiRepeat} from 'react-icons/fi';
 import {AiFillPlayCircle, AiFillPauseCircle} from 'react-icons/ai';
+import useActivate from '../../hooks/useActivate';
 
 function Controls({audio}: {audio: HTMLAudioElement}) {
-    const [isPlayed, setIsPlayed] = useState<boolean>(false);
+    const {isActivate, handleActivate} = useActivate();
 
-    const handleTogglePlay = () => {
-        setIsPlayed(!isPlayed);
-        isPlayed ? audio.pause():audio.play()
+    const handleReproductor = () => {
+        handleActivate();
+        isActivate ? 
+            audio.pause():
+            audio.play();
     }
 
     return (
@@ -16,9 +19,9 @@ function Controls({audio}: {audio: HTMLAudioElement}) {
             <button>
                 <BiSkipPrevious size={30} />
             </button>
-            <button onClick={handleTogglePlay}>
+            <button onClick={handleReproductor}>
                 {
-                    isPlayed ?
+                    isActivate ?
                         <AiFillPauseCircle size={40} />:
                         <AiFillPlayCircle size={40} />
                 }
@@ -26,7 +29,7 @@ function Controls({audio}: {audio: HTMLAudioElement}) {
             <button>
                 <BiSkipNext size={30} />
             </button>
-            <button>
+            <button onClick={() => audio.currentTime = 0 }>
                 <FiRepeat size={20} />
             </button>
         </div>

@@ -6,7 +6,7 @@ import Categories from '../../components/Categories';
 
 const Layout = () => {
   return (
-    <div className="flex bg-black">
+    <div className="flex bg-black pb-22">
       <Header />
       <main className='py-5 px-14 w-4/6' >
         <Outlet />

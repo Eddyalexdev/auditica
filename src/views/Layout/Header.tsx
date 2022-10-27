@@ -1,6 +1,5 @@
-import {Link} from 'react-router-dom';
-
 import Navigation from '../../components/Navigation';
+import ListLibrary from '../../components/Navigation/ListLibrary';
 import Logo from './Logo';
 
 const Header = () => {
@@ -8,6 +7,7 @@ const Header = () => {
     <header className="w-60 px-5 bg-black-100 min-h-screen relative">
       <Logo />
       <Navigation />
+      <ListLibrary />
     </header>
   )
 }

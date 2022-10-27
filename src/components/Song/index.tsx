@@ -1,14 +1,10 @@
 import {useState} from 'react';
 import {AiOutlineHeart, AiTwotoneHeart} from 'react-icons/ai';
 import {HiMenuAlt4} from 'react-icons/hi';
+import useActivate from '../../hooks/useActivate';
 
 const Song = () => {
-
-    const [isActive, setIsActive] = useState<boolean>(false);
-
-    const handleToggleHeart = () => {
-        setIsActive(!isActive);
-    } 
+    const {isActivate, handleActivate} = useActivate();
 
     return (
         <div className="flex items-center justify-between">
@@ -21,9 +17,9 @@ const Song = () => {
             <span className="text-grey">Album</span>
             <div className='flex items-center gap-4'>
                 <span>3:54</span>
-                <button onClick={handleToggleHeart}>
+                <button onClick={handleActivate}>
                     {
-                        isActive ?
+                        isActivate ?
                             <AiTwotoneHeart size={20}/>:
                             <AiOutlineHeart size={20}/>
                     }
